@@ -1,14 +1,8 @@
 const { Schema, model } = require('mongoose');
 
-const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,})+$/;
-
 // Schema to create a User model
 const userSchema = new Schema(
   {
-    userId: {
-      type: Schema.Types.ObjectId,
-      default: () => new Types.ObjectId(),
-    },
     username: {
       type: String,
       unique: true,
@@ -19,7 +13,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
       unique: true,
-      match: [emailRegex, 'Please provide a valid email address']
+      match: [/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,})+$/, 'Please provide a valid email address']
     },
     thoughts: [
       {
@@ -40,12 +34,11 @@ const userSchema = new Schema(
     },
     id: false,
   },
-  // {
-  //   userSchema.virtual('friendCount').get(function () {
-  //     return this.friends.length;
-  //   })
-  // }
 );
+
+userSchema.virtual('friendCount').get(function () {
+  return this.friends.length;
+});
 
 const User = model('user', userSchema);
 
