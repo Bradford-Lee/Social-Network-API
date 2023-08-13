@@ -3,51 +3,31 @@ const { User, Thought, Reaction } = require('../models');
 
 const users = [
     {
-        username: 'Adam',
-        email: 'ariel@gmail.com',
+        username: 'Alpha',
+        email: 'Alpha@email.com'
     },
     {
-        username: 'Brad',
-        email: 'brad@gmail.com'
+        username: 'Beta',
+        email: 'Beta@email.com'
     },
     {
-        username: 'Chris',
-        email: 'chris@gmail.com'
+        username: 'Gamma',
+        email: 'Gamma@email.com'
     },
     {
-        username: 'Donatello',
-        email: 'donny@gmail.com'
+        username: 'Delta',
+        email: 'Delta@email.com'
     },
     {
-        username: 'Elijah',
-        email: 'eliyuhh@gmail.com'
+        username: 'Epsilon',
+        email: 'Epsilon@email.com'
     },
     {
-        username: 'Fredrickson',
-        email: 'fred@gmail.com'
-    },
-    {
-        username: 'Gryffindor',
-        email: 'gogryffins@gmail.com'
-    },
-    {
-        username: 'HelloWorld',
-        email: 'hithere@gmail.com'
-    },
-    {
-        username: 'Ichban',
-        email: 'izzybizzy@gmail.com'
-    },
-    {
-        username: 'Jared',
-        email: 'jarjarbread@gmail.com'
-    },
-    {
-        username: 'Kristina',
-        email: 'kristina@gmail.com'
-    },
+        username: 'Zeta',
+        email: 'Zeta@email.com'
+    }
   ]
-
+  
 connection.on('error', (err) => err);
 
 connection.once('open', async () => {
