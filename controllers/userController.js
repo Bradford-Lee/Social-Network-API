@@ -9,16 +9,19 @@ module.exports = {
     },
     // Get a single user
     getSingleUser(req, res) {
-        User.findOne({ _id: req.params.userId })
+      User.findOne({ _id: req.params.userId })
         .select('-__v')
-        .populate('thoughts')
-        .populate('friends')
-        .then((user) => 
-            !user
-                ? res.status(404).json({ message: 'No user with that ID '})
-                : res.json(user)
+        .then(async (user) =>
+          !user
+            ? res.status(404).json({ message: 'No user with that ID' })
+            : res.json({
+                user,
+              })
         )
-        .catch((err) => res.status(500).json(err));
+        .catch((err) => {
+          console.log(err);
+          return res.status(500).json(err);
+        });
     },
     // Create a user
     createUser(req, res) {
@@ -65,7 +68,7 @@ module.exports = {
         !user
           ? res
               .status(404)
-              .json({ message: 'No user found with that ID :(' })
+              .json({ message: 'No user found with that ID' })
           : res.json(user)
         )
       .catch((err) => res.status(500).json(err));
@@ -81,7 +84,7 @@ module.exports = {
             !user
             ? res
                 .status(404)
-                .json({ message: 'No user found with that ID :(' })
+                .json({ message: 'No user found with that ID' })
             : res.json(user)
         )
         .catch((err) => res.status(500).json(err));

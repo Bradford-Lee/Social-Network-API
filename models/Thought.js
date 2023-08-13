@@ -7,8 +7,8 @@ const thoughtSchema = new Schema(
     thoughtText: {
       type: String,
       required: true,
-      maxlength: 280,
       minlength: 1,
+      maxlength: 280,
     },
     createdAt: {
       type: Date,
@@ -33,7 +33,9 @@ const thoughtSchema = new Schema(
 );
 
 thoughtSchema.virtual('reactionCount').get(function () {
-    return this.reaction.length;
+    return this.reactions.length;
 });
 
-module.exports = thoughtSchema;
+const Thought = model('thought', thoughtSchema);
+
+module.exports = Thought;
