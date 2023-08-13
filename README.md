@@ -16,7 +16,7 @@ The user may clone the repository from GitHub and will need to run "npm i" in th
 ## Usage
 View the walkthrough video here: 
 
-
+[Social Network API.webm](https://github.com/Bradford-Lee/Social-Network-API/assets/127280322/f6eca387-5d75-4a75-bbec-bab7834abef4)
 
 ## Contributing
 Instructor - Samantha Rudolph 
